@@ -1,0 +1,1748 @@
+我們的Boss交給你個任務
+他要你在這個月底前
+把整個購物流程都實作一遍(簡易的)
+UI的部份可以完全照舊
+
+任務的主要目標是學習
+1. 完整的購物流程
+2. 正式開發所使用到的API
+3. 各種配置文件的調整與使用
+4. 網站發佈實務操作
+下午OK丫~~
+學習jQuery的任務必須得先放在一邊了
+在這個月底以前，必須讓你有跟團隊一起開發的實務經驗
+
+
+1. 首頁
+Daily Deal、ShellShocker、Category
+2. Browse
+3. Product List
+4. Product Detail
+Product Info、Add to cart
+5. Combo List
+6. Combo Detail
+Combo Info、Add to cart
+7. Shopping Cart
+8. Login Page
+9. Checkout Page
+10. Thank you Page
+
+
+
+訓練1 創建API
+1. RestService.config創建Component
+
+	Name不同、Segments相同，是否可以連到相同url
+
+2. BusinessContainer.config創建Manager Component
+
+	service打上參照interface,來源資料夾、type打上實作interface的class，故為class檔名、來源資料夾
+
+3. Interface專案創建Interface
+
+	創建interface/class後，記得加上public
+	type class (type parameter)
+
+4. RestServiceImplement專案創建實作的類別(productDetail, advanceSearch)
+
+	GetProductDetail把 result返回到哪裡?
+	#region 區塊必須以 #endregion 指示詞結束，用來註解一個區塊的大綱，compiler不會編譯此行
+	舊版的進階搜索是PowerSearch嗎?
+
+	
+	看完 home & product controller
+	
+	ItemNumber ItemImageUrl ItemPrice
+	
+		public ActionResult Index()
+        {
+            var cookieValue = Request.Cookies["ShoppingCartCookie"].Value;
+            var newCookieValue = "UpdateTime" + DateTime.Now.ToShortDateString();
+            HttpCookie newCookie = new HttpCookie("ShoppingCartCookie");
+            newCookie.Value = newCookieValue;
+            Response.SetCookie(newCookie);
+            return View();
+        }
+		
+		
+	下班前完成TrainingShoppingCart
+	
+	Views.config把TrainingProduct打錯字，結果又錯了20分鐘才修改好(以後error會先看自己是否打錯字)
+	
+	用js、jquery寫把AddToCart的資料寫進cookie
+	
+	
+	
+	cookieManager 沒有 GetCookieSetting方法
+	
+	EnableProductionServer設為false是因為開發環境才不使用嗎?
+	
+	<list>當中的item須對應component id
+	
+	/Shared/_CoreMetrics.cshtml 找不到這個partial view
+	
+	圖檔路徑應該是正確的，但在網頁上始終無法顯示出(資料夾路徑有"&"導致圖片來源錯誤)
+	
+	最後也把js的部分改用自己寫的jquery達到效果，趕完之後有些不熟悉Awards action是怎麼加入的
+	
+	本來誤刪content/css/theme/base的檔案圖片，導致左上角Home的箭頭icon消失，已用SSL的檔案補上、恢復
+	
+	
+	
+	chalmers@newegg.com
+	4edfgt5r
+	
+	
+	
+	NextStep Action 不了解是寫什麼
+	
+	submit按下後不曉得如何導向 TrainingCheckout controller
+	
+	到Login action之後會先到LogonManager找GetNeweggID() 看是否有資料存在cookie(通常是空的 然後返回)
+	
+	(判斷1)? A :(判斷2)? B : C
+	
+	onclick="NeweggMobile.Payment.Init.change('Derek','@checkoutAction')" 用底層寫好的javascript
+	比對paymentCode是否為數字
+	
+	paymentoptions groupCell Class呢? (一個tag用了兩個class 還有用三元表示式的判斷加上css)
+	
+6/25
+	
+	css圖源少了MobileSite的路徑資料夾 and then?
+	
+	Clearance Center是什麼意思?
+	
+	partial view的名稱可以用路徑
+	
+	namespace Newegg.Mobile.MvcApplication.Models	public class ProductListViewDate 寫法用意?
+	
+	_ProductListCell 是先判斷商品是否個人限量購買
+	
+	css{
+		border-bottom: 0.8em #ED620D solid;
+		border-left: 0.5em #ED620D solid;
+		border-right: 0.4em #FFF solid;
+		border-top: 0.8em #ED620D solid;
+	}
+		8
+	| --------|
+	|		  |
+5	|		  | 4 	利用左右兩邊邊線粗線不同，就可以做出右邊凹角的圖形嗎?
+	|		  | 	
+	| --------
+		8
+		
+	_ProductListItemCell Rating	為什麼沒有評分圖
+	
+	利用不可中斷空白 &nbsp; 來達到目的. 例如文件中成&nbsp;功&nbsp;大&nbsp;學 
+	這4個字成功大學就可以保證在同一行，會被拆在不同的兩行中
+	
+	<p class="class1 class2 class3" > ... </p> 哪個class優先權較高?
+	
+	@Html.Partial("Product/_ProductItemCell") 這是做什麼用的? 寫出來的內容是什麼
+	
+	onclick="window.scrollTo(0,0)" 我明白它的意思，但它的js寫在哪裡?
+	
+	MailInRebateText 意思?
+	
+	_SearchBar 的 ViewData["background-color"] 打哪來的?
+	
+	@using (Html.BeginForm("Index", "ProductList", FormMethod.Get, 
+		new Dictionary<string, object> { { "rel", "external" }, { "data-ajax", "false" } }))
+	由/ProductList/Index 接收欄位資料(搜索 keyword)
+	
+	_Pagination 
+	@if (Model.PageNumberList != null){...}
+	else if (Model.TotalCount > 1 && Model.EndPage > 1){...}
+	PageNumberList是什麼意思?	Model.PreviousEnable是判斷是否有前一頁嗎?
+	else if代表 PageNumberList = null 嗎?
+	如果是null怎麼處理else if的部分?
+	
+	<a href="#" > 和 <a href="javascript: void(0)" > 都是產生無作用連結
+	
+	int index = Model.PageNumberList.FindIndex(delegate(int i) { return i == @Model.PageNumber; });
+	匿名方法當成參數丟入FindIndex()，找出頁數(PageNumber)存入 index
+	
+	<a href="@string.Format(Model.Url, @Model.PageNumberList[index - 1])"
+	按下pre的時候，頁數怎麼計算? 
+	
+	從Trainingcheckout Page按下"submit order"後，
+	將_SectionPayment Form裡的CVV2 Code送往SubmitCheckout Action判斷付款
+	然後將資料轉送到Thank you Action、TrainingThankYou Page
+	
+	Message的code、body、description用法?
+	
+	首頁怎麼出現空圖? 
+	
+	NeweggMobile.Checkout.SubmitOrder('Invalid CVV2 code.', 'Please enter CVV2 code.');
+	
+6/26
+
+	按完ThankYou Page的continue shopping後，回到 http://localhost:9811/home
+	但dailydeals上面會出現一片空頁，_Layout註解掉TimeMachineConfig才解決
+	
+	JS檔案沒加入導致LOGIN PAGE出錯 (form收不到資料)
+	
+	Error converting value {null} to type 'System.Int32'. Path 'Body.ErrorMessage', line 1, position 338.
+	
+	
+	cookie MyAccount = new cookie();
+	string cookieValue = Request.Cookies["ShoppingCartCookie"].Value;  
+	
+	
+	        var cookieValue = Request.Cookies["ShoppingCartCookie"].Value;
+            var newCookieValue = "UpdateTime" + DateTime.Now.ToShortDateString();
+            HttpCookie newCookie = new HttpCookie("ShoppingCartCookie");
+            newCookie.Value = newCookieValue;
+            Response.SetCookie(newCookie);
+            return View();
+	
+	
+	PaypalEmailAccound ... model 資料有差異
+	
+	卡在Checkout 跟API溝通後得到空物件
+	
+	9Pkp0158w+AC8TKbzSXHc7Hmyko=*Hb+SCvI6AE65mBurWbR2Qx5BNSo=
+	
+	先跟ShoppingCartIsDirectCheckout Service溝通後，取得SessionID，並存在result.
+	
+	{"ls":[{"itn":"03-102-284","qty":1,"rit":null,"ritn":"03-102-284","rtn":null,"tp":0}],
+	
+	"npa":false,"pac":"","pc":null,"pid":null,"ppe":null,"rus":false,"sid":null,
+	
+	"sls":[{"mm":false,"oid":0,"oit":1,"ot":0,"sd":false,"si":null,"sm":"6"}],
+	
+	"tiq":1,"tk":null,"ws":false,"zp":null}
+	
+	
+	我不了解怎麼把商品資料寫入cookie，因為不懂cookie的格式、拆解分析的方法
+	從而無從調出資料到 checkoutDataInfo
+	比對RESTful Service input的內容，PromotionCodeList可能輸入錯誤
+	
+7/4
+
+	昨天中午做到 3q 之後   幾乎整個流程都可以順利跑完   只差在3q page 缺一樣 OrderID沒出現
+	後來我就試著在header調整RenderSection (css、js那些)
+	今天如果流程用好  就會繼續把css js 那些配置好
+
+7/11
+
+	?? operator example 如下
+
+		// y = x, unless x is null, in which case y = -1. 
+		int y = x ?? -1;
+	
+		FormsAuth = formsAuth ?? new FormsAuthenticationWrapper();
+		就是
+		FormsAuth = formsAuth != null ? formsAuth : new FormsAuthenticationWrapper();
+		也就是
+		if(formsAuth != null)
+			FormsAuth = formsAuth;
+		else
+			FormsAuth = new FormsAuthenticationWrapper();
+	
+	
+	_WarningMessage不了解使用時機，它的view又是長怎樣?
+	
+	orderdetail view Line67 : @if (@ViewBag.InvoiceNumber != 0) 是0還是null?
+	
+	orderdetail view Line71 ~ Line87 : 
+	1. 這是判斷退貨、換貨，以及orderID判空之後再顯示  right?
+	2. @if (@Model.SONumber != 0)   0可以改用null嗎?
+
+	Order 的部分為何不用 <div> <span title> <span price> </div> ?
+	
+	int invoiceNumber = 0;
+    int.TryParse(ViewBag.InvoiceNumber, out invoiceNumber);
+	ViewBag.InvoiceNumber 字串轉換成int  如果數字大小範圍合理 則轉換數字
+	否則 ViewBag.InvoiceNumber 轉成 0
+	
+	coffeescript.org
+
+	悽慘的Model整個被我玩壞  namespace引用錯誤  整個要重建
+	
+7/15
+
+	還好Models算是搶救回來了，但感覺時間不太夠用，不能再做太大變動的嘗試
+	
+	Yellow早，想跟你大概報告一下我現在的狀況
+
+	上週四，接下yellow給我的任務後，當天我在檢視Casper他們之前寫的專案
+	大致看過一遍並手寫記下頁面流程、產生方式
+	security Code無法在Order Detail的頁面顯示，問Sanders後，他說這只能在E4的測試環境看到
+
+	週五，嘗試把自己寫的Code做分案處理，想把重覆使用的功能想分寫在不同的interface、ManagerClass、Factory...
+	希望可以直接使用casper他們專案裡的一些處理功能(ICookie、ICustomer...)，但我不懂如何做動態連結
+	做了半天，於是決定放棄這麼做，還是盡可能的自己去寫出類似的功能
+	當天下午在調整Model部分的時候，不小心誤刪，以致整個專案需花時間補救
+
+	今天週一，直到約莫下午2點，Model重建完成
+	先簡單建出Account的選單頁籤頁面，重新看一遍Casper他們的專案，登入處理的部分
+	思考如何記下NeweggID，如何在登入頁面按下Submit後，做出判斷導向該有的頁面
+	下班前已思考出如何從本來自己寫的專案，從中分出流程判斷
+
+	牽涉到cookie、顧客資料傳遞會花我較多時間，view page的css、js已有寫好的可以參考使用，會比較快完成
+
+7/16
+
+	總算找到用C#寫cookie的好方法了!!
+	
+            HttpCookie cookie = new HttpCookie("MyCookie");
+            cookie.Values.Add("LoginName", "chalmers@newegg.com");
+            cookie.Values.Add("Name", "derek");
+            TimeSpan timeSpan = new TimeSpan(0, 4, 0, 0, 0);
+            cookie.Expires = DateTime.Now.Add(timeSpan);
+            Response.AppendCookie(cookie);	
+	
+		但是Request.Cookies只能在同個namespace使用，在不同controller將會變null
+		結果發現是自己打錯打成Response.Cookie
+	
+7/17	
+	
+	_PaginationBar.cshtml 已補加上去
+	修補 JqueryLibrary.v1.s.7674.js 使 _Filter.cshtml的onfocus可以正常運作
+	
+	{"od":"11/15/2012","son":"0","pson":"5287202","ss":"Pending Pre-Order","tl":"",
+	"iscb":"value","sc":"","iccso":"","ino":0,"pon":"","ro":"","rpo":""}
+	
+	處理OHCI cookie字串的方法，去除JSON的頭尾括號、反斜線，再用split(',')分割成array
+	比對keyword之後再存放參數
+	
+7/18
+
+	從昨天困擾到今天的 Error Message: CS1513: } expected 總算解決了
+	原因有很多，剛好被我修正到其中之一，我把View裡面 razor語法 @{ @xxx ... } 括號裡的 @ 修掉
+	還有把無法參照的 @using Newegg.Mobile.Web.MVC; 註解
+	本來的 @url.Content(...) 改掉就可以跑出view了
+	
+	OHCI cookie裡的value字串經拆解處理後，已解決放入物件的問題
+	處理時未把參數名稱修改正確，以致參數被複寫，花很久才發現這問題
+	
+	_OrderHistoryList.cshtml 
+	<input name="isShowCancelButton" type="hidden" value="@item.IsShowCancelButton" />
+	這行應該將 @item.IsShowCancelButton 轉字串，否則javascript再取value的時候
+	bool值會變成 "value"，故要改成
+	<input name="isShowCancelButton" type="hidden" value="@item.IsShowCancelButton.ToString()"/>
+	
+	CancelOrder.cshtml @this.RenderHeader()的部分CSS JS meta 暫時改用硬打的
+	
+	OHCI cookie.Values["tl"] 本來因逗號切割的方式只取到1個TrackingNumber
+	後來加入while loop判斷才把 tl的value全部順利取出
+	
+	logout的部分，把cookie過期天數減一，Response.AppendCookie() 就可以完成清除Cookie
+	
+	經過購買測試後，確定Order History不會馬上紀錄下單編號
+	兩個測試帳號用port:9813 9814 結果都一樣
+	
+		Order#: 612185522 
+		Submitted: 07/18/2013 07:20:59 PM
+	
+7/19
+		
+	徹底了解如何與 web apo service發出請求
+	
+	HTTP GET:
+	
+	用 HttpWebRequest (或用他所繼承的 WebReqest class) Create method 放入參數 requestUriString
+	HttpWebRequest是靜態class不能直接new出實體物件，所以要用
+			WebRequest request = WebRequest.Create(url);
+	接著要取回應的資料流並把他讀出放在字串
+            Stream responseStream = request.GetResponse().GetResponseStream();
+            StreamReader responseStreamRead = new StreamReader(responseStream);
+            string responseString = responseStreamRead.ReadLine();
+	
+	HTTP POST:
+	
+	造Request的方法一樣，但post的字串資料必須先編碼成八位元組(octets)並用byte[]存放
+			WebRequest request = WebRequest.Create(url);
+			String postData = "123456789.";
+			byte[] requestData = Encoding.UTF8.GetBytes(postData);
+	然後定義請求方式、請求文件格式
+			request.Method = "POST";
+			request.ContentType = "application/x-www-urledcode";
+			request.ContentLength = requestData.Length;
+	接著要把請求資料(postData)寫入請求資料流
+			Stream requestStream = request.GetRequestStream();
+			requestStream.Write(requestData,0,requestData.Length);
+	取回應資料流並轉成字串
+			Stream responseStream = request.GetResponse().GetResponseStream();
+			StreamReader responseStreamRead = new StreamReader(responseStream);
+			string responseString = responseStreamRead.ReadLine();
+	
+	
+	
+	HomeController.indexAction()
+		model.TabStoreList = storebBiz.GetAllStoreMenuAndCategories(true);
+		讀cache("AllStoreMenuAndCategories")，空的就造一個cache，否則直接讀資料
+                allTabStore = this.GetAllStoreMenu();
+					判讀cache("AllStoreMenu")
+					result = this.InvokeAllStoreMenuService();
+						跟service id = "AllMenus"取資料
+                allTabStore = this.GetTabStoreMenuAndCategories(allTabStore);		
+					allTabStore判空之後，用foreach
+					m.CategoryList = this.GetCategories(m.StoreID);
+						跟service id = "Categories"取資料
+		cache.Content存放allTabStore，返回 allTabStore
+	
+	Checkout page的partial view _SectionOrderItemCell.cshtml與OrderDetail的同名
+	必須修改讀取方式，分別讀取
+	
+7/22
+
+	早上DEMO Oreder History給Yellow看之後
+	發現tracking Number跟錯誤的api service網址溝通，以致點了number沒連到運貨公司的網頁
+	
+	修正後，正在研究如何刪掉thank you page在下單後的 shoppingCart cookie
+	結果是路徑沒指定的問題
+	
+	MisCellaneous.config
+		MoreStoreID = -1
+		DiyPcComboStoreID = 7
+		HomePageTabStoreSort list 1 3 10 7 6
+		TabStoreCategoriesCacheTime = 300
+		ShellshockerCacheTime = 300
+		MobileSiteVersion = 2.0
+		PromotionSwitch = true
+		
+	category的部分與service取資料，storeid = 129時會出錯，原因未明
+	
+7/23
+		
+	早上準備code review，程式作些小更改(參數命名、判斷檢查)
+	下午思考昨天做到哪、下一步是練習什麼
+	
+	http://www.homeandlearn.co.uk/csharp/csharp.html
+	查問題時找到這個教c#的網站，一面休息一面看了一些覺得很受用
+	
+	storeid的問題突然自己解決了
+	經過url QueryString排好、view確認接收到資料與正確判斷後，home page的頁籤已能順利產生了(大躍進!!)
+	
+	
+7/24
+
+	今天嘗試把Newegg.mobile.configuration.dll等相關資料連進來使用
+	使ICookie、FactoryService都能在我的專案運作
+	但連結之後，因為我的專案並沒有存放xml、cs相關檔
+	所以Build.url就無法使用，view的url還是得手動自行寫死
+	
+	目前做到可以search keyword之後到productList page，不過商品小圖還沒呈現出來
+	
+	不明白發生什麼事，舊有的程式JsonController現在跟api service取資料會出錯
+	是不是接口更換有影響呢??? 連同order history都取不到資料了..
+	
+	return this.BuildComboDetailUrl(shellshocker.ShellShockItemNumber.ToInt(0), 0, string.Empty, true);
+	
+7/25 
+		
+	WWW跟SSL的 _TitleBar.cshtml不同，需要分別使用
+	今天發覺之前註冊的chalmers帳號似乎不能再使用了，被系統視為沒有信用卡
+	twt362的帳號也像是被清掉很多購物紀錄
+	web service網址不知道出了什麼問題，測試網址取回的資料幾乎都是null
+	而改用product url就可以取到資料(圖片、search結果)
+	site css有些用7476 有些用8105 這讓我在_layout的部分有些難操作
+	我該怎麼取捨css js? 到現在仍然相當無解，不用的話要自己花很長的時間去做
+	用的話，view得幾乎全部套用才有可能長得一模一樣
+	
+	shellshocker 跟測試URL取不到資料，跟Product url取到資料卻無法show出HOME PAGE
+	
+	找不出 /Json/ShoppingCart 商品title的改色方法	#333 想改成 #465A7B
+	
+	service 網址仍然是相當奇怪
+	
+7/26
+
+        ICustomer customer = (ICustomer)result.Body;
+        AuthenticationManager.SaveCustomer(customer);
+        AuthenticationManager.CreateTicket(customer.Number, customer.LoginName);
+
+	LoginManager這段程式是怎麼完成的?
+	
+	WWW跟SSL的_header、_SearchBar寫法不同，引用site.css也不同 7674跟8105
+	所以myAccount這邊與productList呈現的會有落差
+	
+	setCreditCardInfo 的輸入資料跟login處理方式一樣，需要先ASCIIEncoding再POST
+	
+	
+	001:visa
+	002:masterCard
+	003:
+	004:
+	
+	020:payPal
+	
+	024:NPA
+	035:googleWallet
+	
+7/29
+
+	上週 Payment/index view header與WWW寫法、css不同的問題
+	另外寫_SSLHeader、_SSLSearchBar、_SSLLayout之後已能解決
+
+	<dl> 定義列表（definition list）
+	
+	CreateCreditCard POST的部分弄了半天才曉得要把傳入的物件序列化
+	
+	海關要求商用發票要寫上 In Warranty Rep
+	
+	COD：cash on delivery 貨到付款
+	KPI（Key Performance Indication）關鍵業績指標
+	
+	invoiceNumber 商用發票號碼，用於國際間商業行為的發票，記載貨品金額、價值
+	packing List是包裝單，作為貨品內容說明的憑證，包裝方式、貨品內容、型號、體積重量
+	
+	給你Fedex的tracking number. 拿到這個tracking number. 你可以自己打電話給Fedex, 
+	了解東西現在在哪裡, 何時會再送. 有tracking number的話, 可以打1-800-gofedex. 
+	
+7/30
+
+	RMA Status / History 跟 Order history頁面相似，目前能簡單做出一個cell
+	但filter 找不出原因，無法收到挑選參數更換cell
+	
+	當貨品在保固期間希望寄回維修、鑑賞期間不符期待希望退換貨
+	都必須先填寫一張 RMA需求單，遞交之後，產品客服中心確認貨品狀態後
+	批可就會給 RMA number跟產品包裝指示書，客人可用RMA number追蹤貨品處理狀態(時間 地點)
+	
+	Yellow，我已大致了解過RMA的意義
+	今天依Restful Service API 釋義文件大概做了一點 RMA Status/history 的部分
+	但我無法取得 RMA Number，能不能請問yellow，我該跟哪支API取資料?
+	(文件上有新的跟舊的，新的取不到 RMA Number)
+
+8/1
+
+	昨天算是大概做出RMA List跟Deail的部分，今天檢查欄位是否有資料遺漏
+	思考view如何渲染、資料如何判取
+	url 有特殊字元(EX: # & ...) 要用@Url.Encode("字串")，經過處裡QueryString才能取到正確key/value
+	
+	
+8/2
+	
+	花一整天調整兩個Partial view的css 但可能還是會被打槍
+	我已找不到更好的辦法，眼前做的頂多在微修部分排版，就看yellow怎麼安排了
+	
+	
+	landlord	http://goo.gl/9rdAO	
+	
+8/6
+	
+	麻煩來了，要怎麼把Message保留到rma detail再使用，Product的部分應該要考慮seller資料呈現、判空使用還沒寫
+	
+8/7	
+	
+	┌────┐
+	│ 口 │ ← 裡面那個口 padding我還曉得 如果它又margin-bottom 會不會讓口下面的範圍變大  超出自己本身的高度
+	└────┘ 
+	
+<div>
+    <div style="display:inline-block;/*vertical-align: top;*/">
+        <p>第一行</p>
+        <p>第二行</p>
+        <p>第三行</p>
+    </div>
+    <div style="display:inline-block;position:relative;top:-2.5em;/*vertical-align: top;*/">
+        <P>這個是不是也會降到第三行? 答案是經過調整可以調到第一行了</P>
+    </div>
+</div>
+	
+8/8	
+	
+	NEWEGG RMA
+	
+	1. 可透過登入線上發出請求RMA、或是跟客服中心連繫取得RMA Number
+	2. 從網頁列印UPS運貨單，貼在運送箱上並寫上寄送NEWEGG地址；
+	   如果選其他送貨公司，要挑有Tracking功能跟附有基本保險的公司
+	3. 收到你的RMA後，我們會發出一封Email通知
+	   你的包裹被打開、批示檢視你的貨物也會發出Email通知，通常會經過2到5個工作天
+	4. RMA批可時，如果你請求的是換貨，會換新貨給你並發正式的Email通知
+	   如果請求是退貨退費，通常會花3到5天匯錢到你當初的付款方式，整個時程需視你銀行政策而定
+	 
+	
+	
+	他說 MESSAGE 印象中有其他資料  但這是LIST API取的  應只有一筆一種  他正在找有沒有
+	SOStatusDescription if exist, show this,if not show seelisting
+	void SOStatuschangeColor Grey, price change to orange
+	return instructions 第二個標題不應該被改掉，<li>忠實呈現
+	OrderID就是RMANumber
+	refund type移到RMA Summary
+	
+	1. rma# issued (give customer number)
+	2. received (tell customer we received)
+	3. approved (reason confirm and process)
+	4.void (number is questioned)
+	
+8/14
+		
+	用DES加密Login cookie，但是暫時沒解決cookie被修改或替換的問題
+
+	rma@rma.rma
+	o/EOWnXRY/76WtMux0d4kFIkYMCfF9M7I4GO3KqyKM0u9LdHwIBq1qsmVI7K8heBemtGj0uKzi0zXJ1RWSJLOT75jYmp9e68K/GD7t3vZwQ=
+	
+	twt362@gmail.com
+	UVpl60ERWptmMBiZDcm4gyHZKSspPmhlOAobuUGHjexdciD3vFabHvEJPmNzZL+tLv2IiVrS4K+H6vHRhpOqP2PIiaEdnjAX
+	
+	http://EVIntl-aia.verisign.com/EVIntl2006.cer
+	
+8/16
+	
+	今天研究 LINQ、lambda語法，總算對一些 method了解怎麼取用
+	
+	初始化一個物件時，若有欄位是List<T>，必須將這個欄位初始化 List<T> n = new List<T>();
+	
+	public class student
+	{
+	public List<int> scores;
+	}
+	
+	static List<Student> students = new List<Student>
+	{
+	new student {Scores= new List<int> {94, 92, 91, 91} }
+	};
+
+8/21
+
+	http://www.arabmoheet.net/forum/Members_Upload_Pics/6228/DE.JPG 
+	加解密、byte、stream 參考圖 
+	
+	在執行 Parallel.For 的範例時，一定會碰到一個很詭異的狀況， 
+	有時候執行會正常，有時候會跳出以下的錯誤訊息
+	這是因為 在 .Net 3.5 之前所提供的所有 Collections 都不是 thread-safe 的
+	必須使用.Net 4.0 ， System.Collections.Concurrent Namespace 下的泛型
+	
+	
+8/28
+
+	本來想自己建 xml config檔，重要的class(RestServiceRequestFactory)自行建好、或用dll檔 reference
+	但關鍵的Newegg.Configuration.all卻連錯誤，以至於與service取資料還是得用 stream來處理
+
+	_CategoryList L44 
+	本來是StoreType=@StoreType.TabStore，但無法將TabStore轉成"4"，於是直接打"4"才解決
+	StoreDepaId=@item.StoreID則是 @urlBuilder.BuildStoreSeeAllDealsUrl傳入參數改用storeDepaId
+	不解為何不用StoreID害我用了半天
+	
+8/29
+
+	把專案的屬性改勾 IIS 就能消 header
+	許多方法中，在app_code資料夾寫 class module 實作IHttpModule 再用 Dispose()
+	然後在web.config 註冊是較好的，可避免 css檔仍被看出header用什麼server
+	
+	<modules runAllManagedModulesForAllRequests="true">
+      <add name="CustomServerHeader" type="Newegg.B2BMobile.MvcApplication.Site.App_Code.CustomServerHeaderModule" />
+    </modules>
+	
+	0912066805
+	
+9/2
+	
+	shellshocker li 置中
+	header icon 排好
+	
+	http://www.ows.newegg.com/Search.egg/Query
+	
+9/4
+
+	else 
+	{<span>&nbsp;</span>}  
+
+	_EGGXTRACELL  第16 17行
+
+	新增 _BrowseHistory.cshtml
+	
+9/6
+
+	下週一開會記得找casper、進度表填好、新增 productList 新項目
+	
+9/9
+
+	back botton icon換了檔名!!
+	
+9/10
+
+	@Html.Partial("_TitleBar", new ViewDataDictionary {  { "BackLink", "/" }, { "ShowBack", true }, { "Title", ViewBag.Description }})
+	
+	    int currentPage = @Model.PageNumber; 目前在第幾頁
+        int numberPerPage = @Model.PageSize; 每頁呈現多少筆商品
+        int results = @Model.TotalCount;總共多少筆商品
+	int totalPage = (results % numberPerPage == 0) ? (results / numberPerPage) : (results / numberPerPage) + 1;
+	用上面兩個求出總頁數
+	然後pagination裡面的所有連結我還沒改成urlbuilder
+
+	我們返回來的PageInfo中的PageSize和PageCount欄位資料有問題
+	http://localhost:54138/Store/SeeAllDeals?storeType=4&StoreId=97&categoryId=-1&description=Refurbished%20items&nodeId=-1 <http://localhost:54138/Store/SeeAllDeals?storeType=4&StoreId=97&categoryId=-1&description=Refurbished items&nodeId=-1>  (___"http://localhost:54138/Store/SeeAllDeals?storeType=4&StoreId=97&categoryId=-1&description=Refurbished) 
+
+	
+	原來底層也是用 namespace Newegg.Mobile.Rest.Client
+	internal abstract class RequestBodySetter 裡面的方法來寄送requestBody
+	
+	    internal virtual void SetRequestBody(WebRequest request, object body)
+        {
+            byte[] bodyContentBytes = this.GetContentBytes(request, body);
+
+            if (bodyContentBytes != null && bodyContentBytes.Any())
+            {
+                using (Stream requestStream = request.GetRequestStream())
+                {
+                    requestStream.Write(bodyContentBytes, 0, bodyContentBytes.Length);
+                }
+            }
+        }
+	
+
+
+9/14
+
+	result = service.GetShopAllNavigation();
+	
+	tabStore 取到資料 storeID 有兩個-1, 這可能是service的問題
+	
+	正式環境搜索"toy" toy(264543)
+	mobile_www用測試環境 toy(42)
+	
+	分別用AES跟DES加密解密
+            string testString1 = "description=MyCamera";
+            string testString2 = "description=MyCameraAndMySamsungGalaxyS3";
+	
+	明文長度分別是20、40
+	
+	用AES分別加密後，密文長度分別是44、64
+	  DES密文長度分別是32、64
+	  
+	75 108
+	
+	CSS三角形產生器
+	
+	mNotu6W5GSMNrBE2i1uGTw== 
+	
+	Digital+Cameras 
+
+	using Newegg.Mobile.Security.Cryptography;
+	
+        /// <summary>
+        /// IEncryptograph processor.
+        /// </summary>
+        private IEncryptograph encrypt;
+
+        /// <summary>
+        /// IDecryptograph processor.
+        /// </summary>
+        private IDecryptograph decrypt;	
+	
+            this.encrypt = CryptographFactory.CreateEncryptograph(SymmetricCryptographyAlgorithmCategory.Rijndael);
+            string descriptionForTitleBarEncrypt = this.encrypt.Encrypt("Digital Cameras");
+            ////ViewBag.Description = descriptionForTitleBarEncrypt;
+
+            this.decrypt = CryptographFactory.CreateDecryptograph(SymmetricCryptographyAlgorithmCategory.Rijndael);
+            string descriptionForTitleBarDecrypt = this.decrypt.Decrypt(descriptionForTitleBarEncrypt);
+            ViewBag.Description = descriptionForTitleBarDecrypt;	
+	
+	
+9/23
+	
+	Newegg.Mobile.Business.Process.BusinessProcessorFactory
+		IWindsorContainer container = GetContainer();
+			string path = ConfigFilePathManager.GetRealConfigFilePath(GetConfigfile());
+				return FileManager.GetPhysicalPath(ConfigurationManager.AppSettings[ConfigFileSettingName]);
+				-> ConfigurationManager.AppSettings[ConfigFileSettingName] = Configurations/BusinessContainer.config
+				-> 判斷路徑是否有"根目錄"，否則用AppDomain.CurrentDomain.BaseDirectory取出後用Combine方法
+				
+				if (Path.IsPathRooted(path))
+				{
+					result = path;
+				}
+				else if (!string.IsNullOrWhiteSpace(path))
+				{
+					result = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, path.Replace("~", string.Empty).Replace('/', '\\').TrimStart('\\'));
+				}
+	
+			result = GetContainerFromCache(path);
+				ICache<IWindsorContainer> cache = CacheManager.GetCache<IWindsorContainer>(CacheSettingName, fileName);
+					CacheSetting setting = CacheSettingManager.GetCacheSetting(settingName);
+						CacheSettingCollection settingCollection = GetConfiguration();
+							string pathName = FileManager.GetPhysicalPath(ConfigurationManager.AppSettings["CacheConfigFile"]);
+							-> pathName = Configurations/Cache.config
+							CacheSettingCollection result = GetConfigurationFromCache(pathName);
+							
+	
+	老爹是會計系= =
+	
+9/24
+
+	1. 變數使用說明
+	2. 布建步驟
+	3. 網站測試與驗證
+	4. 說明Success Criteria table，資料該如何被翻譯使用
+	
+	2o7.net or omtrdc.net 是adobe的第三方tracking cookie
+	
+	
+1 Content Effectiveness
+	用在商品分頁(from top-level categories)
+	pageName、channel、prop1、prop2、prop3
+	s.pageName="Home and Outdoors: Major Appliances: Cooking Appliances:Microwaves"
+	s.channel="Home and Outdoors"
+	s.prop2="Home and Outdoors: Major Appliances"
+	s.prop3="Home and Outdoors: Major Appliances: Cooking Appliances" 
+	s.prop1="level 4"
+	
+2 Internal Keyword Search
+3 External Campaigns
+4 Internal Campaigns
+5 Product Finding Methods
+6 Merchandising/Browse Category Analysis
+7 Shopping Cart Funnel Analysis
+8 Cross Selling Analysis
+9 Percentage of Page Viewed
+10 Visitor Status/Activity
+11 Time Parting
+	
+	
+
+var scp=typeof(scp)=='undefined'?{}:scp;
+scp.cmPageName="PRODUCT\x3aDSLR SONY \x7c SLT-A99V BK BODY RT_30-179-651";
+scp.serverName="E4WEB01";
+scp.pageType="Browsing;Product Browsing";
+scp.pageName="Home \x3e Digital Cameras \x3e DSLR Cameras \x3e Sony \x3e Item\x23\x3aN82E16830179651\x3aPRODUCT"
+
+scp.tabStore="Digital Cameras"
+scp.subcategoryStore="DSLR Cameras"
+scp.moreThan3level=false
+scp.events=scp.events?scp.events:"prodView";
+scp.products=scp.products?scp.products:"30-179-651";
+scp.brandName=scp.brandName?scp.brandName:"Sony";
+scp.sellerName=scp.sellerName?scp.sellerName:"Newegg";
+scp.pageNickName="PRODUCT";
+Biz.Common.SiteCatalyst.send(scp);
+
+	
+https://itt.coremetrics.com/ITTWithSessions/logout.do 
+client id:60172959
+帳號：newegg
+密碼：temp!
+
+	
+9/26
+		
+	a
+	a
+	c
+	b
+	c
+	
+	a
+	b
+	c
+	a
+	b
+	
+	c
+	a
+	a
+	b
+	a 
+	
+	b
+	a
+	a 
+	a
+	a
+	
+	m8gm7b2
+	
+9/27
+
+	!important 使該類使用此顏色的層級提高到優先
+	
+9/30	
+	
+	Combo api 調不到資料，08測試環境調到的combo商品，在生產環境是out of stock
+	
+	products.egg/{itemNumber}/ProductDetails 是不是有打錯??
+	
+	JS是哪邊改動了?
+	
+10/01	
+	
+	.whiteBox 的 border屬性可以拿掉嗎?
+	
+	http://localhost:54138/Product/index?itemNumber=N82E16817151087
+	http://localhost:54138/Product/index?itemNumber=N82E16819115233
+	
+10/7
+
+	我在看Paypal 取得SessionID
+	是不是取得方式有兩種?
+	一、shoppingCart選 secure checkout with paypal
+	二、login newegg帳號後，在checkout page(preview order)選paypal付款方式 
+	
+10/8
+
+	\\st01ec03\EC_Share_Data\MobileSite
+	
+	Verify Authorization header has the following:
+		– Signature
+		– Consumer Key (exists and correct length)
+		– Nonce
+		– Signature Method
+		– Timestamp
+		– Callback URL (Request Token call only)
+		– oauth_verifier (Access Token call only)
+		– oauth_token (Access Token call only)
+	
+	BOB 7/15  Sylvia 8/15
+	
+	MasterCardR SecureCode = Paypal payerID
+	
+	p24有流程圖
+	
+	美國人今年前108天工作所得 全是政府的
+	
+10/9
+	
+	masterPass Zone:	liugayo/4edfgt5r1
+	
+	Source File: c:\Users\dl33\Documents\Visual Studio 2012\Projects\MvcGuestbook\Newegg.Mobile.Common\CacheSettingManager.cs    Line: 104 
+	卡在這  IWindsorContainer container = new WindsorContainer(fileName);
+	
+	C:\Users\dl33\documents\visual studio 2012\Projects\MvcGuestbook\MvcApplication1\Configurations\Cache.config
+	要從檔案取出 Object 失敗，無法將字串轉型存放
+	
+10/11	
+	
+	8990 8991
+
+	用戶發送feedback的時候我們需要添加一行內容:
+	Country: USA or Canada
+	判斷用戶目前所使用的 是USA 還是 CAN的版本
+
+	oh my god!!
+	UIMasterPassRequest.SessionI"D" 要大寫!!
+
+10/14
+
+	CAN的是Browse > More > Weekly Deals  不是Daily Deals
+	
+	Product Details 運送方式內容不同
+
+	點下切換國家的botton後，
+	顯示 “When switching countries, any items in the shopping cart will be deleted and you will be logged out automatically.”
+	
+	CAN 不販售 Download item類型
+	Install NET, Tech Support, Cisco Service不支援
+	SNET有支援
+	
+10/15	
+	
+	http://m.newegg.com/ProductList?description=hHHt%252buv3FrbezmIngovvhw%253d%253d&storeid=-1
+	&categoryid=-1&nodeid=1&storetype=106&subcategoryid=10&brandid=-1&nvalue=100019096%20600030539&
+	showseealldeals=False&itemcount=0
+	&customlink=http://www.newegg.com/Product/ProductList.aspx?Submit=Property&Subcategory=10&Description=
+	&Type=&N=100019096+600030539&IsNodeId=1&IsPowerSearch=1&srchInDesc=&MinPrice=700&MaxPrice=999.99&OEMMark=0
+	&OEMMark=N&OEMMark=1&issubcategory=true&Page=3
+	
+	每個querystring參數都encode
+	
+10/16
+
+	    /// <summary>
+        /// Gets or sets PostalCode.
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(Global.AddressDetail), ErrorMessageResourceName = "PostalCode")]
+        [DataMember(Name = "PostalCode")]
+        [RegularExpression(@"^[a-zA-Z]{1}[0-9]{1}[a-zA-Z]{1}\s?[0-9]{1}[a-zA-Z]{1}[0-9]{1}$", ErrorMessageResourceType = typeof(Global.AddressDetail), ErrorMessageResourceName = "PostalCodeError")]
+        ////[StringLength(7, ErrorMessageResourceType = typeof(Global.AddressDetail), ErrorMessageResourceName = "PostalCodeLength")]
+        public string PostalCode { get; set; }
+	
+	1. 長度沒有加的必要
+	2. 資源檔必須新增PostalCode、PostalCodeError
+	3. _AddressContent 新增跟zipcode一樣的code即可
+	
+10/17
+
+	DefaultIV:	RIJNDAEL@NEWEGG.
+	DefaultKey:	RijndaelCryptograph@NeweggMobile
+	
+	CustomerName(N1):test testt		CustomerNumber(N2):????
+	
+	N2=rm9lMLZxi284nMNjK5d5EA==&N1=LC9Thhl2YC3gyrOrmxGm3Q==
+	
+10/18
+	
+	ShoppingCart：
+	EWRA/EHF (縮寫) 顯示在subtotal下方
+	Checkout：
+	Electronic Waste Recycling Fee/Environment Handling Fee(完整)顯示在Subtotal上方
+
+10/28
+
+	Push Notification推播機制
+	
+	如果我們今天開發了一款服務型App(如︰賣雜誌的App)，出版商希望隨時通知使用者有新的雜誌上	
+	
+	我剛剛好不容易吧會議室搞定了
+	這禮拜四 下午三點開
+	再視訊會議室
+	下禮拜開始 照常 在 61803 & 61808 
+	下午0130~0230
+
+	iphoneClient deviceType是否是列舉欄位，wiki沒寫詳細
+	
+	
+	<TabStore>
+	GetNewAllStoreMenuAndCategories
+	-> InvokeShopAllNavigation
+	-> 調 ShopAllNavigation API
+
+	<MoreTabstore>
+	GetMoreNavigationItemInfo
+	-> InvokeMoreTabStoreService
+	-> 調 MoreNavigation API
+	
+	Apply Promo Codes
+	Promo codes have usage limitations that require you to enter your email address to enable Promo Codes.
+	
+	We value your privacy. You won't get any emails from us unless you place an order or sign up for our newsletter.
+	
+	Email填完，p code填錯的
+	Sorry, the promo code EMCWXVR25 you've entered is invalid.
+	
+	
+	價格紀錄
+	主機板
+	  185 248 118 325
+	  298 286 186 389
+	印表機  
+	  185 248 118 325
+	  356 231 260 268
+
+	
+	var testChangeWraper = function () { 
+        var myitemID = ["nav1", "nav2", "nav3", "nav4", "nav5", "bulkItem"]; 
+        //check every ID 
+        $.each(myitemID, function () { 
+            var swiperCount = $('#' + this).find('.swiper-slide').length; 
+
+            //check every swiper-slide 
+            for (var i = 0; i < swiperCount; i++) { 
+                var currentSwiper = "#" + this + " .swiper-slide:nth(" + i + ")"; 
+                var nextSwiper = "#" + this + " .swiper-slide:nth(" + (i + 1) + ")"; 
+
+                var swiperWidth = $(currentSwiper).width(); 
+                var cellWidth = $(currentSwiper).find('.cell').width(); 
+                var cellsCount = $(currentSwiper).find('.cell').length; 
+                var keepNum = Math.round(swiperWidth / cellWidth); 
+
+                if (swiperWidth < (cellsCount * cellWidth) && keepNum < cellsCount) {//1.if scroll up size 
+                    $(currentSwiper).find('.cell:gt(' + (keepNum - 1) + ')').removeClass('lastCell'); 
+
+                    if (!$(nextSwiper).html()) {//if the next dosen't exist. 
+                        var moveSwiper = $(currentSwiper).prop('outerHTML'); 
+                        $(currentSwiper).after(moveSwiper); 
+                        $(nextSwiper).removeClass('swiper-slide-visible swiper-slide-active').find('.cell').remove(); 
+                        swiperCount++; 
+                    } 
+
+                    var moveContent = $(currentSwiper).find('.cell').eq(keepNum).prop('outerHTML'); 
+
+                    for (var j = keepNum + 1; j < cellsCount; j++) { 
+                        moveContent += $(currentSwiper).find('.cell').eq(j).prop('outerHTML'); 
+                    } 
+                    $(currentSwiper).find('.cell:gt(' + (keepNum - 1) + ')').remove(); 
+                    $(nextSwiper).prepend(moveContent); 
+                } 
+                else if (swiperWidth >= ((cellsCount + 1) * cellWidth) && keepNum > cellsCount) {//2.if scroll down size
+
+                    var moveNum = keepNum - cellsCount; 
+
+                    if ($(nextSwiper).html() && $(nextSwiper).find('.cell:nth(' + (moveNum-1) + ')').html()) {//if the next does exist.
+
+                        var moveContent = $(nextSwiper).find('.cell:nth(0)').prop('outerHTML'); 
+
+                        for (var j = 1; j < moveNum; j++) { 
+                            moveContent += $(nextSwiper).find('.cell:nth(' + j + ')').prop('outerHTML'); 
+                        } 
+
+                        $(nextSwiper).find('.cell:lt(' + moveNum + ')').remove(); 
+                        $(currentSwiper).append(moveContent); 
+
+                        if (!$(nextSwiper).find('.cell').html()) { //remove the empty swiper-slide 
+                            $(nextSwiper).remove(); 
+                            swiperCount--; 
+                        } 
+                    } 
+                } 
+                //else { 
+                // //break;//when the first swiper width is correct. 
+                //} 
+            } 
+        }); 
+    }; 
+
+    testChangeWraper(); 
+
+    $(window).resize(function () { 
+        testChangeWraper(); 
+    });
+
+11/6
+	
+	ShoppingCart新增EHF GST/HST PST資源檔、model欄位
+	_TotalAmount 加上 EHF GST/HST PST欄位，"須修改 if"
+	
+	
+	{"ls":[{"itn":"20-155-266","qty":1,"rit":null,"ritn":"20-155-266","rtn":null,"tp":0},
+	{"itn":"17-171-003","qty":2,"rit":null,"ritn":"17-171-003","rtn":null,"tp":0}],
+	"npa":true,"pac":"","pc":null,"pid":null,"plf":1,"ppe":null,"rus":false,"sid":null,
+	"sls":[{"ies":false,"mm":false,"oid":0,"oit":4,"ot":0,"sd":false,"si":null,"sm":"45"}],
+	"tiq":3,"tk":null,"ws":false,"zp":null}
+	
+	14-351-QTP ，使用 T0H 3V0 postalCode
+
+11/7	
+	
+	Payment edit之後，按back，default會取消是否正確?
+	
+	13-186-052
+	
+	{
+  "PromotionCodeList": [],
+  "ItemList": [{
+    "FinalPrice": "$200.00",
+    "ImageURL": "http://images10.newegg.com/NeweggImage/ProductImageCompressAll125/22-144-374-01.jpg",
+    "ItemNumber": "9SI600146512056",
+    "MainItemNumber": "9SI600146512056",
+    "Quantity": 1,
+    "ItemType": 0,
+    "RelatedQuantity": 1,
+    "ItemMapPriceMarkType": 0
+  }],
+  "OrderDefaultShippingMethodInfoList": [{
+    "SellerID": "6005",
+    "IsSamDayOrder": false,
+    "OrderItemType": 1,
+    "OrderType": 0,
+    "IsMaunalMehtod": false,
+    "IsEggSaverOrder": false
+  }],
+  "PCodeNewsLetterFlag": 0,
+  "IsSelectedRush": false,
+  "IsNPAPromotionChecked": false,
+  "CustomerNumber": 0
+}
+
+	
+	FinalPrice ImageURL RelatedQuantity PCodeNewsLetterFlag IsNPAPromotionChecked
+	
+	本地測試 12/2
+
+	Relese到PRD測試 12/11
+
+	上線 12/20
+
+	26-03U-QTP                
+	
+	00-000-007 
+	33-122-016 	
+	(P CODE)EMCPDBOBCAN01 
+	
+	OrderID : 2100583401 2100585041 2100585061 2100585161 2100585261 
+	
+	Outlet:
+	N82E16896107004
+	N82E16896100144
+	N82E16896100102 (See Price after Checkout)
+	
+	Subcategory_001_Desktop PC:
+	N82E16883102310
+	
+	Gaming:
+	N82E16832105259
+	
+	remember ask Nick for request fiddle
+	
+	http://goo.gl/KYIeJE
+	
+	UIOrderDisplayFeeInfo Model新增加拿大稅率欄位
+	
+	價目表標示 See Price after Checkout 是否有問題?
+	
+	建議order history filter 增加 2014年
+	
+	112051021-chalmers
+	9899982-twt362 
+	112028841-rma 
+
+	http://10.16.50.226:10009/customers/rma.egg/list?customerNumber=112028841&pageIndex=1&searchKey=&timeRegion=30
+
+	http://10.16.50.226:10009/customers/rma.egg/detail?customerNumber=112028841&rmaNumber=23956922&date=05/28/2013
+
+11/27
+	
+	IE Proxy 修改
+
+	m.newegg.ca.sh;secure.m.newegg.ca.sh;m.newegg.com.sh;secure.m.newegg.com.sh
+
+	\\st01ec03\EC_Share_Data\MobileSite\Local Launch
+
+	Order#: 2100599481 
+	Submitted: 11/27/2013 02:29:23 PM
+
+	item(01-977-QTP) + emcpdbob01can 
+	1 Maire-Victorin 
+	Toronto, ON M5A 1E1
+
+	13-157-qtp EMCPDBOB03CAN 
+
+12/24
+
+	<item>http://10.16.212.43:8888</item>
+	bebe@gmail.com	111111	
+	customerNumber - 112028841
+
+	"SONumber": 23956922,
+
+
+	A:Approval RMA創建初始狀態
+	V:Void RMA單無效狀態
+	R:Received 倉庫收到客人發回的貨物
+	P:Post 確認RMA單的處理方式，已提交處理中
+	E:In Processing 帳務系統已批審，即將調換貨物重新發給客人
+	C:Close RMA單已處理完成
+
+
+
+{"ZipCode":"E8P 1T4","CustomerNumber":9899982,"SessionID":null,"CVV2Code":"","PromotionCodeList":null,"ItemList":[{"MainItemNumber":"22-148-064","RelatedItemNumber":null,"Quantity":1,"RelatedQuantity":0,"ItemType":0,"FinalPrice":null,"ImageURL":null,"ItemNumber":"22-148-064","PreSelectItemNumber":null,"SnetList":[],"ItemMapPriceMarkType":0}],"OrderDefaultShippingMethodInfoList":[{"OrderItemType":4,"DefaultShippingMethod":"45","IsSamDayOrder":false,"IsMaunalMehtod":false,"SellerID":null,"OrderType":0,"IsEggSaverOrder":false,"VenderNumber":null}],"IsSelectedRush":false,"IsNPAPromotionChecked":true,"PaytermsCode":"","NeweggGiftCodes":null,"NeweggGiftPWDs":null,"PCodeNewsLetterFlag":1}
+
+
+
+{
+    "Code": "000",
+    "Description": "",
+    "Body": {
+        "IsDirectCheckout": true,
+        "SessionID": "KNKIJLQYZFPC0DO"
+    }
+}
+
+
+{"ZipCode":"M1S 1T4","CustomerNumber":9899982,"SessionID":"INYFIV8MOHLSAZO","CVV2Code":"","PromotionCodeList":null,"ItemList":[{"MainItemNumber":"22-148-064","RelatedItemNumber":null,"Quantity":1,"RelatedQuantity":0,"ItemType":0,"FinalPrice":null,"ImageURL":null,"ItemNumber":"22-148-064","PreSelectItemNumber":null,"SnetList":[],"ItemMapPriceMarkType":0}],"OrderDefaultShippingMethodInfoList":[{"OrderItemType":4,"DefaultShippingMethod":"45","IsSamDayOrder":false,"IsMaunalMehtod":false,"SellerID":null,"OrderType":0,"IsEggSaverOrder":false,"VenderNumber":null}],"IsSelectedRush":false,"IsNPAPromotionChecked":true,"PaytermsCode":"","NeweggGiftCodes":null,"NeweggGiftPWDs":null,"PCodeNewsLetterFlag":1}
+
+
+
+2/12
+
+	D:\NeweggMobileWebsite2.0\03_Code\Mobile_WWW_EC_Framework2.0\v01.2\Framework\Src\Core\Resource
+	調用interface
+
+	D:\NeweggMobileWebsite2.0\03_Code\Mobile_WWW_EC_Framework2.0\v01.2\Framework\Src\Core\Resource\Implement
+	實作interface
+
+	
+2/13
+	An error was encountered while opening associated documents the last time this solution was loaded. Document load is being skipped during this solution load in order to avoid that error.
+
+	..\..\..\ReferenceLib\Microsoft\Enterprise.Library\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+
+
+	808-530-028-262
+
+
+http://10.16.50.226:10008/docs/Documents#UIComboBaseInfo
+這個UIComboBundleInfo 沒有 IsFreeShipping 
+
+http://10.16.50.74:8077/index.php?title=Combos
+wiki寫的  UIComboBundleInfo 有 IsFreeShipping 
+
+
+2/20
+
+
+===============share e-mail的部分是透過這支嗎?===============
+
+	http://10.16.50.74:8077/index.php?title=Share_Email
+	第一支跟第二支的差別?
+	兩支都能把信寄出去? (第二支試調過都失敗)
+
+===============關於 Keyword Suggestion=======================
+
+	1.現在app使用的是AutoKeyword這支API?
+	2.文件說UIKeywordItemInfo這個model將廢棄, 意指將來換新model?
+	　http://10.16.50.226:10008/docs/Details/Search
+	3.是否有什麼邏輯要注意? 例如當使用者輸入3個字元以上,才調用API等等.
+
+===============有沒有辦法驗證p-code過期======================
+
+	哪支API能讓我驗證
+
+
+	◢▆▅▄▃-崩╰(〒皿〒)╯潰-▃▄▅▆◣  
+
+
+	可能會在 feedback.cshtml Line 10 之前加入filter partial view
+
+	http://localhost:9811/Product/index?itemnumber=N82E16855999403
+
+	00-000-088               
+	00-000-QTP
+	00-888-036   
+	01-009-QTP               
+	11-112-212               
+	12-816-208
+	13-130-487R
+
+
+2/26
+
+	9665 我新增的部分
+
+	---ProductController---
+	viewBag
+	
+	---ProductManager---
+	FilterAndSortReviews 參數代表cookieName("FnSR")
+	
+	GetProductReviews cookie判空後 rating跟sort參數給值
+
+
+1.把有Tools抓出來的"Configuration和Content和View"這三種直接丟過去100那邊
+2.然後到D槽找到WWW 9965主專案的bin資料夾, 也是抓今天有變化的那些檔案 
+
+
+	180 PATH
+	\\10.16.50.226\mobile_www
+
+
+
+	yoyyoyo@163.com		123456!Q
+
+
+4/11
+
+	api分享 Import a collection
+
+	A-LINK https://www.getpostman.com/collections/237aaefe9c558332c368
+
+	CHECKOUT https://www.getpostman.com/collections/c4426d97668ad1de333d
+
+	FEEDBACK https://www.getpostman.com/collections/60da6a3ff01a4578b18c
+
+	MY ACCOUNT https://www.getpostman.com/collections/7d38d874237da4bc99de
+
+	PRODUCT DETAIL https://www.getpostman.com/collections/12e209206304cd15ec55
+
+	QAS https://www.getpostman.com/collections/54c32b6f1e7bc4a87abb
+
+	SELECT https://www.getpostman.com/collections/d72c0ee3f7957dc04937
+
+	SHOPPING CART https://www.getpostman.com/collections/81477605ffee80bc9ec3
+
+	SHOPPING LOGIN https://www.getpostman.com/collections/686874c4113194b3650d
+
+
+namespace Newegg.Mobile.Business.Process  L68
+
+
+
+
+                if (container.Exists(m => typeof(TBusinessProcessor) == Type.GetType(m.ServiceTypeContext)))
+                {
+                    result = (TBusinessProcessor)Activator.CreateInstance(Type.GetType(container.FirstOrDefault(m => typeof(TBusinessProcessor) == Type.GetType(m.ServiceTypeContext)).ItemTypeContext));
+                }
+
+
+            ////Newegg.Mobile.Serialization.IDeserializer deserializer = Newegg.Mobile.Serialization.SerializerFactory.CreateDeserializer(Newegg.Mobile.Serialization.SerializationType.XML);
+            ////string resourceSettingConfigFilePath = Newegg.Mobile.IO.FileManager.GetPhysicalPath("Configurations/USA/Miscellaneous-USA-Xml.config");
+            ////MiscellaneousConfig miscellaneousConfig = deserializer.Deserialize<MiscellaneousConfig>(new CustomXMLSerializeHelper(resourceSettingConfigFilePath).GetContainerText());
+
+            ////Newegg.Mobile.Serialization.IDeserializer deserializer = Newegg.Mobile.Serialization.SerializerFactory.CreateDeserializer(Newegg.Mobile.Serialization.SerializationType.XML);
+            ////string resourceSettingConfigFilePath = Newegg.Mobile.IO.FileManager.GetPhysicalPath("Configurations/USA/Cookie-USA-Xml.config");
+            ////CookieSettingCollection cookie = deserializer.Deserialize<CookieSettingCollection>(new CustomXMLSerializeHelper(resourceSettingConfigFilePath).GetContainerText());
+
+            ////Newegg.Mobile.Serialization.IDeserializer deserializer = Newegg.Mobile.Serialization.SerializerFactory.CreateDeserializer(Newegg.Mobile.Serialization.SerializationType.XML);
+            ////string resourceSettingConfigFilePath = Newegg.Mobile.IO.FileManager.GetPhysicalPath("Configurations/USA/MobileDeviceFilter-USA-Xml.config");
+            ////MobileDeviceFilterConfiguration mobileDeviceFilterConfiguration = deserializer.Deserialize<MobileDeviceFilterConfiguration>(new CustomXMLSerializeHelper(resourceSettingConfigFilePath).GetContainerText());
+
+            ////Newegg.Mobile.Serialization.IDeserializer deserializer = Newegg.Mobile.Serialization.SerializerFactory.CreateDeserializer(Newegg.Mobile.Serialization.SerializationType.XML);
+            ////string resourceSettingConfigFilePath = Newegg.Mobile.IO.FileManager.GetPhysicalPath("Configurations/USA/PageAlias-USA-Xml.config");
+            ////PageAliasConfig pageAliasConfig = deserializer.Deserialize<PageAliasConfig>(new CustomXMLSerializeHelper(resourceSettingConfigFilePath).GetContainerText());
+
+            ////Newegg.Mobile.Serialization.IDeserializer deserializer = Newegg.Mobile.Serialization.SerializerFactory.CreateDeserializer(Newegg.Mobile.Serialization.SerializationType.XML);
+            ////string resourceSettingConfigFilePath = Newegg.Mobile.IO.FileManager.GetPhysicalPath("Configurations/USA/RestServices-USA-Xml.config");
+            ////RestServiceSettingCollection restServiceSettingCollection = deserializer.Deserialize<RestServiceSettingCollection>(new CustomXMLSerializeHelper(resourceSettingConfigFilePath).GetContainerText());
+
+            ////Newegg.Mobile.Serialization.IDeserializer deserializer = Newegg.Mobile.Serialization.SerializerFactory.CreateDeserializer(Newegg.Mobile.Serialization.SerializationType.XML);
+            ////string resourceSettingConfigFilePath = Newegg.Mobile.IO.FileManager.GetPhysicalPath("Configurations/USA/ServerEnvironment-USA-Xml.config");
+            ////ServerEnvironmentSettings serverEnvironmentSettings = deserializer.Deserialize<ServerEnvironmentSettings>(new CustomXMLSerializeHelper(resourceSettingConfigFilePath).GetContainerText());
+
+            Newegg.Mobile.Serialization.IDeserializer deserializer = Newegg.Mobile.Serialization.SerializerFactory.CreateDeserializer(Newegg.Mobile.Serialization.SerializationType.XML);
+            string resourceSettingConfigFilePath = Newegg.Mobile.IO.FileManager.GetPhysicalPath("Configurations/USA/Varnish-USA-Xml.config");
+            VarnishConfig varnishConfig = deserializer.Deserialize<VarnishConfig>(new CustomXMLSerializeHelper(resourceSettingConfigFilePath).GetContainerText());
+
+
+
+
+
+4/30
+
+	Jira 4月份還沒寫
+	TealiumHelper.cs get最新之後，我把自己的undo，自己寫的存在桌面記事本裡
+	因為eva把<string, string>改成了<string, object>
+	_Layout.cshtml 也是被修改
+
+5/5
+
+	productTag	product_instock 判空要修改 Boolean != null，不是轉string再判空
+	記得明天要Checkin 修改過的!!
+
+
+5/23
+
+	跟casper介紹看看LINQPad，可以了解c# code的運作情況與程式複雜度
+	本來在思考as跟is的轉型差別，後來從這篇看來的
+	http://stackoverflow.com/questions/7566212/when-should-you-use-the-as-keyword-in-c-sharp
+
+	截圖好工具
+	https://chrome.google.com/webstore/detail/lightshot-screenshot-tool/mbniclmhobmnbdlbpiphghaielnnpgdp
+
+	Mono.Reflection似乎有什麼用
+
+5/30
+
+	Fiddler 的教學影片
+	\\st01ec03\EC_Share_Data\Tester\video\fiddler
+
+6/4
+
+	var _text;
+
+	if(!_text){
+	    alert(typeof !_text);
+	}else{
+	    alert("coming else if");
+	}
+
+	可以用這個了解 !obj
+
+6/5
+	
+	分支先get最新
+	對著分支的WWW/SSL資料夾右鍵選 Merge，確認merge到主線的路徑正確後
+	用資料夾分別開啟主線與分支的WWW/SSL資料夾，用beyond compare
+	select all files
+	 expand all
+	  =?
+ 	   找出差異手動merge
+
+	到主線的WWW/SSL 用notepad++ 開啟sln檔，修改底層路徑，確認無誤後存檔
+	打開WWW/SSL sln檔，檢查底層是否被引用進來
+	unload所有子專案，edit
+
+	06_ReferenceLib、Mobile_CommonLibrary、\04_CodingStandard、\Mobile_CommonLibrary
+	global專案的四個點點改成兩個
+	<PreBuildEvent>$(SolutionDir)\..\..\05_CommonApplication\ResxPublic.exe $(ProjectDir) *.Designer.cs</PreBuildEvent>
+
+	build完成後，checkin
+
+6/10
+
+	http://jsfiddle.net/VL9Gu/1/
+
+6/11
+
+	https://sandbox.www.v.me/self-service-ic/enroll 
+
+	1. 註冊外掛、物件化function 並以自訂外掛的namespace引用
+
+	2. 取用 data-ooxx的值，取代自定prop的用法 (ooxx開頭不能用大寫)
+	   用 this 實現內部呼叫，避免外部調用
+
+6/12
+
+	http://jsbin.com/wikuriyi/1
+
+6/17
+
+	ForgotViewModel 發生了什麼事? 欄位屬性似乎寫亂了
+
+	casper:home/combo
+	eric:address/shoppingCart/checkout/order
+	eva:product/productlist/store/account/wishlist
+	wilie:checkout/payment/order
+	derek:common
+	sue:business
+	griffin:service
+
+6/19
+
+	完成cacheManager跟CacheSettingManager的註解，CommonCache還沒註解
+
+6/23
+	
+	AES加密做法與Rijndael相同，Rijndael是AES的早期版本
+	AES每次加密的Block size固定為128-bit，key size可用128、192、256-bit
+	但Rijndael的block size不只一種，還有160、192、224、256-bit，key size不用match block size
+
+	底層呼叫加密是從 CryptographFactory.cs調用靜態方法
+
+6/27
+
+	((從主線分支新專案))
+	先get最新
+	找到新專案的branch目錄(WWW或SSL)用Beyond compare放右邊
+	舊的分支專案放左邊
+
+	Beyond compare的 Filters:打上"*.sln;*.csproj"，挑選資料夾內要比較的副檔名
+	　select all files
+	　　expand all
+	　　　=?
+
+	找出相差的部分，
+	csproj可以拿舊專案 蓋掉新專案的路徑
+	sln要先到TFS選check out for edit再到Beyond compare編輯成新的、存檔
+
+	build新分支、run起來沒問題就可以check in
+	comment打 build 10730 WWW/SSL path.
+
+7/7
+
+	ftp://s7dftp01/
+
+7/8	
+
+    namespace B2B.UI.Service
+
+        DepaManager.GetStoreProperty()
+        {
+            this.restClient.Value.GetRequestFromConfiguration("Get_StoreProperty");
+        }
+
+    namespace Newegg.EC.RestClient.Implement
+        internal class DefaultRestfulRequestRepository
+            public IRestfulRequest GetRequestFromConfiguration(string configuredResourceKey)
+            {
+                return new ConfiguredRestfulRequest(configuredResourceKey, this.configRepository, this.hostRepository, this.regex, this.guidFactory, this.bizunit, this.systemContext, this.httpContext);
+            }
+
+        internal class ConfiguredRestfulRequest
+            public ConfiguredRestfulRequest(string configKey, ...)
+            {
+                IRestfulServiceResourceUnit config = this.configRepository.GetResource(configKey);
+            }
+
+    namespace Newegg.EC.RestClient.Implement.Configuration
+        internal class DefaultRestfulServiceConfigRepository
+            public IRestfulServiceResourceUnit GetResource(string resourceKey)
+            {
+                RestfulServiceConfig config = this.GetConfig();
+            }
+
+            private RestfulServiceConfig GetConfig()
+            {
+                return this.configurationManager.GetConfiguration<RestfulServiceConfig>();
+            }
+
+    namespace Newegg.EC.Configuration.Implement
+        internal class DefaultConfigurationManager
+	    public TConfiguration GetConfiguration<TConfiguration>() where TConfiguration : class
+            {
+                return this.GetConfiguration<TConfiguration>(true);
+            }
+
+            public TConfiguration GetConfiguration<TConfiguration>(bool withBizUnit) where TConfiguration : class
+            {
+                string configName = this.nameGenerator.GetConfigurationName<TConfiguration>();  //取得config name或file path
+
+                return this.GetConfiguration<TConfiguration>(configName, withBizUnit);
+            }
+
+            public TConfiguration GetConfiguration<TConfiguration>(string filePath, bool withBizUnit) where TConfiguration : class
+            {
+                return withBizUnit ? this.configAccessorWithBizUnit.GetConfig<TConfiguration>(filePath) : this.configAccessor.GetConfig<TConfiguration>(filePath);
+            }
+
+       internal class DefaultConfigurationAccessorWithBizUnit : IConfigurationAccessorWithBizUnit
+	    public TConfiguration GetConfig<TConfiguration>(string configName)
+	    {
+	        if (this.configPathsGenerator.TryGetConfigurationPaths(configName, out paths))
+	    }
+
+       internal class StrategiesConfigurationPathsWithBizUnitGenerator : IConfigurationPathsWithBizUnitGenerator
+	    public bool TryGetConfigurationPaths(string configName, out string[] paths)
+	    {
+	        if (strategy.TryGenerateConfigurationPaths(configName, out currentPaths))
+	    }
+	
+        internal abstract class RelativePathInAppdomainSubDirectoryWithSplitBizUnitSubDirectoryStrategy : IConfigurationPathsGenerateStrategy
+            public bool TryGenerateConfigurationPaths(string configName, out string[] paths)
+            {    
+	        string fileName = this.staticPath.HasExtension(configName) ? configName : string.Concat(configName, ".config");  //確定包含 檔名.config
+
+	        if (!string.IsNullOrWhiteSpace(countryCode))
+                {
+                    filePathWithBizUnit = this.staticPath.Combine(this.currentAppdomain.BaseDirectory, this.SubDirectory, countryCode, fileName);
+                    pathsList.Add(filePathWithBizUnit);
+                }
+
+                if (this.staticFile.Exists(filePathWithBizUnit))	//確定檔案路徑存在，並返回
+                {
+                    result = true;
+                }
+	    }	    
+
+
+
+    方法(this class me, int aa, int bb)
+
+    代表這個方法是這個class的擴充方法，但是不做override的修飾
+    原來的方法可能是
+    方法(int aa)
+
+
+    使用時，這個class跟方法都需要加上static
+
+7/9
+
+<<Model的部分>>
+
+	CachesConfig.cs用屬性對應盛裝Cache.config的tag
+
+	[XmlRoot(ElementName = "CachesConfig")]、[ConfigFile("Caches.config")]
+	
+<<B2B.UI.Service的部分(類似implement class)>>
+
+	class CachesConfigRepository的GetConfig(string key)可取出對應key的cache
+
+	ICacheManager cacheManager
+	CacheManager.GetOrAdd()
+	CacheManager.AddOrUpdate() 皆是cache的使用方式
+
+	使用範例可看，class DepaManager的 AddOrUpdateAllStorePropertiesToCache()
+	this.CacheManager.AddOrUpdate("AllStores", "AllStores", allStoreProperties);
+
+<<Newegg.EC.Cache的部分(類似mobile底層)>>
+
+	加cache的方式類似mobile底層所寫的概念，用路徑取cache、cache存內容、用c#原生 memoryCache的方法save
+
+	B2B用cacheManager.cs的 AddOrUpdate<T>(string key, string configKey, T cacheContent)
+
+	1. 選出配置檔與key、configkey對應的cache (註1)
+	2. cacheItem.Content = cacheContent;
+	3. 再用c#原生的 memoryCache.AddOrUpdate(cacheItem);
+
+	  註1：怎麼找到配置檔對應的cache?
+
+	  cofigkey會先判空，再用cacheManager的 GetConfigExceptDefault調用ConfigRepository.cs的方法
+	  configRepository.GetConfig(configKey)
+	
+	  先用configkey試取有沒有對應的cache，如果沒有，取default cache
+
+	  DefaultConfigurationNameGenerator.cs 的 GenerateConfigName方法會取得configFileSetting.FilePath
+
+	  DefaultConfigurationAccessor.cs的GetConfig方法可取得完整路徑
+	  並用 xmlSerializer.DeserializeFromXml<TConfiguration>(xmlContent); 反序列化出cache物件
+
+
+
+
+
+<<Model的部分>>
+
+	寫在B2B.UI.Configuration(資料夾的class都是配置檔轉換物件的欄位) 
+
+<<configuration的部分>>
+
+	BizConfigManager.cs類似mobile的Newegg.Mobile.Configuration的 Current get
+
+	ECLibraryContainer.Get<IConfigurationManager>().GetConfigurationByKey<PageFooterConfig>("PageFooterConfig");
+	"PageFooterConfig"類似AppSetting的key，可取出檔案的相對路徑
+
+	DefaultConfigurationManager.cs的 GetConfigurationByKey方法會預設使用國碼(withBizUnit = true)
+		
+	再調用 DefaultConfigurationFilePathConfigRepository.cs的 GetPath方法，第46行是關鍵
+
+	  用DefaultConfigurationNameGenerator.cs的 GetConfigurationName方法取得 檔名.副檔名
+	
+	調用 DefaultConfigurationAccessorWithBizUnit.cs的方法 GetConfig<TConfiguration>(string configName)
+
+	  DefaultConfigurationNameGenerator.cs 的 TryGetConfigurationPaths方法會取得configFilePath
+
+	  DefaultConfigurationAccessor.cs的GetConfig方法可取得完整路徑
+	  並用 xmlSerializer.DeserializeFromXml<TConfiguration>(xmlContent); 反序列化出cache物件
+
+
+7/15
+	
+	http://docs.castleproject.org/Default.aspx?Page=XML-Inline-Parameters&NS=Windsor&AspxAutoDetectCookieSupport=1
+
+	Windsor目前只支援list array dictionary, 否則要用變數系統
+
+7/17
+
+	在BigPipeController的BigPipeViewAsync方法
+
+
+	//使用 GetFrameContent方法將viewData、Model轉成string
+	string frameContent = this.GetFrameContent(finalviewName, model, masterName);
+
+
+	GetFrameContent方法使用了IView的Render方法，將ViewContext型別的物件(含有viewData、Model)寫入StringWriter型別的物件
+	然後StringWriter型別的物件使用ToString方法轉成字串回傳
+
+
+
+	如果需要改寫view的render方法
+	必須在Application_Start 註冊新的render方法 (new 這個新的class)
+	
+	
+	protected virtual void ChangeViewEngine()
+        {
+            ICurrentViewEngines currentViewEngines = this.servicesLocator.Resolve<ICurrentViewEngines>();
+            currentViewEngines.ClearEngines();
+            currentViewEngines.AddEngine(this.servicesLocator.Resolve<IWebSiteViewEngine>());
+        }
+
+
+	class StringWriter : TextWriter 都有非同步的寫法，可能有機會寫非同步的render
+	Task WriteAsync(string value);
+
+
+	只要在 global.asax 的Applicayion_Start 加上
+	ViewEngines.Engines.Clear(); 
+	ViewEngines.Engines.Add(new RazorViewEngine());
+	就能減少viewEngine去找aspx、aspc的view，可以增加一倍的找尋效率
+
+
+
+	http://www.cnblogs.com/majiang/archive/2012/11/11/2764976.html
+
+	http://encosia.com/a-harsh-reminder-about-the-importance-of-debug-false/
+
+	追查到 ViewEngineResult.cs 和 ViewEngineCollection.cs 的FindView方法
+
+7/25
+
+	Where is Taylor?
+
+	Email : ncp82827@gmail.com
+	Line : chentaylor
+	Cell Phone Number : 0956578607
+
+	為了不要被"以齊人之道還治齊人之身"，我絕對不說一些"了無新意"的內容
+
+	謝謝各位這段期間的配合，容忍我不是很好的脾氣，忍受我一些無理的壓榨
+	要說的話太多，也不知道該如何說起，以後有空再說吧
+	總之，謝謝大家
+	PS. 親愛的Sam & 小強，記住你們對我做過的事啊，我會報仇的
+
+	另外，請大家務必配合Yellow & Chris，有空要幫他們按摩，請他們吃飯喝茶
+	還有，請多多體諒BSD，他們的壓力很大，也是很辛苦的
+
+
+
+
+
+
+
+
+
+
+
+
